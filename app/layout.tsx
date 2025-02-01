@@ -30,10 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className = {`${poppins.className} antialiased h-full`} >
-      <body className="max-w-3xl md:max">
+    <html lang="fr" className = {`${poppins.className} `} >
+      <body className="antialiased h-full max-w-3xl p-4">
+
+        <div className="flex flex-col gap-4">
         <Header/>
         {children}
+        </div>
       </body>
     </html>
   );
