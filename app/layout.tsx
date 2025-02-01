@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import { Header } from "../src/components/ui/header";
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin"],
@@ -29,8 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className = {`${poppins.className} h-full`} >
-      <body>
+    <html lang="fr" className = {`${poppins.className} antialiased h-full`} >
+      <body className="max-w-3xl md:max">
+        <Header/>
         {children}
       </body>
     </html>
