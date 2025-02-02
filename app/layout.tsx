@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Christopher Pouradier • Softaware Engineer",
-  description: "👋 Hi, I'm Chris! 💻 Full-stack developer | Open-source enthusiast . 🌱 Learning AI | New Tech | SEO. 📫",
+  description: "I'm Chris! Full-stack developer, Learning AI | New Tech | SEO | Next.js | React",
 };
 
 export default function RootLayout({
