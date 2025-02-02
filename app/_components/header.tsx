@@ -1,6 +1,6 @@
 
-import { Card, CardHeader, CardTitle, } from "./card";
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { Card, CardHeader, CardTitle, } from "../../src/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "../../src/components/ui/avatar";
 export function Header() {
     return (
       
