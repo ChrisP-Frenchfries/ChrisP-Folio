@@ -45,21 +45,21 @@ export function Header() {
                     <NavigationMenuItem>
                       <Link href="/" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          Accueil
+                          /Home
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                       <Link href="/projets" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          Projets
+                          /Projetcs
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                      <Link href="/contact" legacyBehavior passHref>
+                      <Link href="/resume" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          Contact
+                          /Resume
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>

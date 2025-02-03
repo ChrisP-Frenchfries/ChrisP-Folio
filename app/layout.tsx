@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className = {`${poppins.className} h-full`} >
-      <body className="antialiased h-full max-w-3xl p-4">
+      <body className="antialiased h-full max-w p-4">
 
         <div className="flex flex-col gap-4">
         <Header/>

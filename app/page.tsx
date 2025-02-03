@@ -8,14 +8,12 @@ import Link from "next/link";
 export default function Home() {
   
   return (
-<Card>
+<div>
     <CardHeader>
-        <CardTitle>URL: / </CardTitle>
+        <CardTitle>URL: /Home </CardTitle>
     </CardHeader>
-    <CardContent>
-      <Link href="/admin" className={buttonVariants({size: "lg", variant: "outline"})}> /admin </Link>
-    </CardContent>
-</Card>
+    
+</div>
 );
 
 }
