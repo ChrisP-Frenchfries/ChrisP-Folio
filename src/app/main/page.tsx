@@ -4,7 +4,7 @@ export default async function Page(){
     return (
     <Card>
         <CardHeader>
-            <CardTitle>URL: / admin </CardTitle>
+            <CardTitle>URL: / projects </CardTitle>
         </CardHeader>
     </Card>
     )
