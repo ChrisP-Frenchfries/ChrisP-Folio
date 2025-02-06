@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
-import "./globals.css";
-import { Header } from "./_components/header";
+import "../styles/globals.css";
+import { Header } from "../components/Header/header";
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: "I'm Chris! Full-stack developer, Learning AI | New Tech | SEO | Next.js | React",
   icons: {
     icon: [
-      { 
+      {
         url: '/icon.svg',
         type: 'image/svg+xml',
         sizes: 'any'
@@ -51,12 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className = {`${poppins.className} h-full`} >
+    <html lang="fr" className={`${poppins.className} h-full`} >
       <body className="antialiased h-full max-w p-4">
-
+        <Header />
         <div className="flex flex-col gap-4">
-        <Header/>
-        {children}
+          {children}
         </div>
       </body>
     </html>

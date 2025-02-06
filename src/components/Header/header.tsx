@@ -1,6 +1,6 @@
 import { Card } from "@/src/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
-import { Section } from "./Section";
+import { Section } from "../Section/Section";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -78,23 +78,23 @@ export function Header() {
                       <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                     </SheetHeader>
                     <div className="flex flex-col gap-4 mt-8">
-                      <Link 
-                        href="/" 
+                      <Link
+                        href="/"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
-                        Accueil
+                        /Home
                       </Link>
-                      <Link 
-                        href="/projets" 
+                      <Link
+                        href="/projets"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
-                        Projets
+                        /Projects
                       </Link>
-                      <Link 
-                        href="/contact" 
+                      <Link
+                        href="/contact"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
-                        Contact
+                        /Contact
                       </Link>
                     </div>
                   </SheetContent>
