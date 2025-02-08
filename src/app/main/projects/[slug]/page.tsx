@@ -31,6 +31,7 @@ export default async function BlogPostPage({
     // vous pouvez importer le fichier MDX et l’afficher directement.
     // Une solution courante est d’utiliser la fonction `compileMDX` ou d'importer dynamiquement le composant.
     // Pour simplifier, vous pouvez renommer votre fichier en .mdx et utiliser un import dynamique :
+
     const MDXContent = (await import(`../../../posts/${slug}.mdx`)).default;
 
     return (
