@@ -60,3 +60,7 @@ ChrisP-Folio
 └─ tsconfig.json
 
 ```
+
+# Bon a savoir
+
+- ## Modifiez vos data/Cards dans MainSection.tsx
