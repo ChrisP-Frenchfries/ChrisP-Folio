@@ -1,6 +1,7 @@
 import { CardTitle } from "@/src/components/ui/card";
 import { MainSection } from "@/src/components/Main/MainSection";
 import { TechCardsContainer } from "@/src/components/MainSection2/TechCardsContainer";
+import BlogPostsExample from "@/src/components/BlogPostsExemple";
 
 export default async function MainPage() {
     return (
@@ -18,6 +19,11 @@ export default async function MainPage() {
                 <CardTitle>SKILLS: /i-love-to-work-with:  </CardTitle>
             </div>
             <TechCardsContainer />
+            <div className="border-t w-full max-w-4xl mx-auto "></div>
+            <div className="w-full max-w-4xl  mx-auto pb-4 pt-4" >
+                <CardTitle>BLOG: /list:  </CardTitle>
+            </div>
+            <BlogPostsExample />
             <div className="border-t w-full max-w-4xl mx-auto "></div>
         </main>
     )
