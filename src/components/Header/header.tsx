@@ -52,7 +52,7 @@ export function Header() {
                     <NavigationMenuItem>
                       <Link href="/projets" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          /Projetcs
+                          /Projects
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
