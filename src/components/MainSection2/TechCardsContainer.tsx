@@ -3,7 +3,7 @@ import { TechCard } from "@/src/components/MainSection2/TechCard";
 
 export const TechCardsContainer: FC = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto flex flex-row items-center justify-around gap-4">
+    <div className="w-full max-w-4xl mx-auto flex flex-wrap items-center justify-around gap-4">
       <TechCard
         image="/images/next-react.png"
         alt="Next/react"
