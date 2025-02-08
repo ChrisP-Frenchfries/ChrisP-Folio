@@ -5,22 +5,28 @@ export const TechCardsContainer: FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto flex flex-row items-center justify-around gap-4">
       <TechCard
-        image="/images/tech1.png"
-        alt="Tech 1"
-        title="Tech 1"
-        description="Description pour Tech 1"
+        image="/images/next-react.png"
+        alt="Next/react"
+        title="Next/React"
+        description="My Main Framwork"
       />
       <TechCard
-        image="/images/tech2.png"
-        alt="Tech 2"
-        title="Tech 2"
-        description="Description pour Tech 2"
+        image="/images/TS.png"
+        alt="TypeScript"
+        title="TypeScript"
+        description="and ZOD for validation"
       />
       <TechCard
-        image="/images/tech3.png"
-        alt="Tech 3"
-        title="Tech 3"
-        description="Description pour Tech 3"
+        image="/images/TailwindCSS.png"
+        alt="Type Script"
+        title="TailwindCSS"
+        description="shadcn/ui ♥"
+      />
+      <TechCard
+        image="/images/TailwindCSS.png"
+        alt="Type Script"
+        title="PostgreSQL"
+        description="with Supabase and Prisma"
       />
     </div>
   );
