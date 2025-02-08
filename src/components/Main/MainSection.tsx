@@ -1,67 +1,8 @@
-import Link from "next/link";
+
 import { Card } from "@/src/components/ui/card";
+import { ProjectCard } from "./ProjectCard";
+import { JobCard } from "./JobCard";
 
-type ProjectCardProps = {
-    href: string;
-    imageUrl: string;
-    title: string;
-    description: string;
-};
-
-function ProjectCard({ href, imageUrl, title, description }: ProjectCardProps) {
-    return (
-        <Link href={href}>
-            <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1]">
-                <div className="flex h-full">
-                    {/* Image en carré à gauche */}
-                    <div className="w-1/4 h-full">
-                        <img
-                            src={imageUrl}
-                            alt={title}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    {/* Zone texte à droite */}
-                    <div className="w-3/4 pl-4 flex flex-col justify-center">
-                        <h3 className="text-lg font-semibold">{title}</h3>
-                        <p className="text-sm text-muted-foreground">{description}</p>
-                    </div>
-                </div>
-            </Card>
-        </Link>
-    );
-}
-
-type JobCardProps = {
-    href: string;
-    imageUrl: string;
-    title: string;
-    description: string;
-};
-
-function JobCard({ href, imageUrl, title, description }: JobCardProps) {
-    return (
-        <Link href={href}>
-            <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1]">
-                <div className="flex h-full">
-                    {/* Image en carré à gauche */}
-                    <div className="w-1/4 h-full">
-                        <img
-                            src={imageUrl}
-                            alt={title}
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    {/* Zone texte à droite */}
-                    <div className="w-3/4 pl-4 flex flex-col justify-center">
-                        <h3 className="text-lg font-semibold">{title}</h3>
-                        <p className="text-sm text-muted-foreground">{description}</p>
-                    </div>
-                </div>
-            </Card>
-        </Link>
-    );
-}
 
 export function MainSection() {
     // Exemple de données (à remplacer par vos données réelles éventuellement)
@@ -90,8 +31,8 @@ export function MainSection() {
         {
             href: "/jobs/1",
             imageUrl: "/images/job1.jpg",
-            title: "Job 1",
-            description: "Description courte pour le Job 1.",
+            title: "cometdesign",
+            description: "super description.",
         },
         {
             href: "/jobs/2",
