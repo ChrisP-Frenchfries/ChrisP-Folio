@@ -5,7 +5,8 @@ import { JobCard } from "./JobCard";
 
 
 export function MainSection() {
-    // Exemple de données (à remplacer par vos données réelles éventuellement)
+    {/* Exemple de données (à remplacer par vos données réelles éventuellement)/liéer a une BDD.
+        je place la data ici par simplicité */}
     const projects = [
         {
             href: "/projects/1",
@@ -55,7 +56,7 @@ export function MainSection() {
     ];
 
     return (
-        <div className="w-full max-w-4xl mx-auto">
+        <div className="w-full max-w-4xl mx-auto ">
             <div className="flex gap-4">
                 {/* Section Projets (7/12 de largeur) */}
                 <Card className="w-7/12 overflow-hidden p-4">

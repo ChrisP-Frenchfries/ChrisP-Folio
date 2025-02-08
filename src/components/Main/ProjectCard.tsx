@@ -6,7 +6,7 @@ type ProjectCardProps = {
     imageUrl: string;
     title: string;
     description: string;
-};
+}
 
 export function ProjectCard({ href, imageUrl, title, description }: ProjectCardProps) {
     return (
