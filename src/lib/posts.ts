@@ -14,11 +14,20 @@ export interface PostData {
 
 export function getPostData(slug: string): PostData {
     const postsDir = path.join(process.cwd(), "src/posts");
-    const filePath = path.join(postsDir, `${slug}.mdx`); // ou .md selon votre extension
+    const filePath = path.join(postsDir, `${slug}.mdx`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
+
+    // Extraction des propriétés requises avec valeurs par défaut si absentes
+    const title = data.title ?? "Titre par défaut";
+    const date = data.date ?? "Date inconnue";
+    const preview = data.preview ?? "Aucun aperçu disponible";
+
     return {
         ...data,
+        title,
+        date,
+        preview,
         content,
     };
 }
