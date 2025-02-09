@@ -23,7 +23,7 @@ export const TechCardsContainer: FC = () => {
         description="shadcn/ui ♥"
       />
       <TechCard
-        image="/images/TailwindCSS.png"
+        image="/images/supabase.png"
         alt="Type Script"
         title="PostgreSQL"
         description="with Supabase and Prisma"

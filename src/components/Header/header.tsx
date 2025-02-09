@@ -10,7 +10,7 @@ import {
 } from "@/src/components/ui/navigation-menu"
 import Link from "next/link"
 import { Button } from "@/src/components/ui/button";
-import { Menu } from "lucide-react";
+import { Download, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -50,18 +50,18 @@ export function Header() {
                       </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                      <Link href="/projets" legacyBehavior passHref>
+                      <Link href="/about" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          /Projects
+                          /About
                         </NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                      <Link href="/resume" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          /Resume
-                        </NavigationMenuLink>
-                      </Link>
+
+                      <a href="/cv-Christopher-Pouradier.pdf" target="_blank" rel="noreferrer" className={navigationMenuTriggerStyle()}>
+                        <Download className="inline-block ml-1 w-4 h-4" />&nbsp;Resume
+                      </a>
+
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
@@ -85,17 +85,19 @@ export function Header() {
                         /Home
                       </Link>
                       <Link
-                        href="/projets"
+                        href="/"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
-                        /Projects
+                        /About
                       </Link>
-                      <Link
-                        href="/contact"
+                      <a
+                        href="/cv-Christopher-Pouradier.pdf"
+                        target="_blank"
+                        rel="noreferrer"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
-                        /Contact
-                      </Link>
+                        /Resume <Download className="inline-block ml-1 w-4 h-4" />
+                      </a>
                     </div>
                   </SheetContent>
                 </Sheet>

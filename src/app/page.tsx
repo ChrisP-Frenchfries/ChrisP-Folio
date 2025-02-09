@@ -16,7 +16,7 @@ export default async function MainPage() {
             {/* Vous pouvez ajouter d'autres sections ici */}
             <div className="border-t w-full max-w-4xl mx-auto "></div>
             <div className="w-full max-w-4xl  mx-auto pb-4 pt-4" >
-                <CardTitle>SKILLS: /i-love-to-work-with:  </CardTitle>
+                <CardTitle>My-Stack: /i-love-to-work-with:  </CardTitle>
             </div>
             <TechCardsContainer />
             <div className="border-t w-full max-w-4xl mx-auto "></div>
