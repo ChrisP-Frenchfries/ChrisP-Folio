@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/src/components/ui/card";
+import Image from "next/image";
 
 type ProjectCardProps = {
     href: string;
@@ -15,7 +16,7 @@ export function ProjectCard({ href, imageUrl, title, description }: ProjectCardP
                 <div className="flex h-full">
                     {/* Image en carré à gauche */}
                     <div className="w-1/4 h-full">
-                        <img
+                        <Image
                             src={imageUrl}
                             alt={title}
                             className="w-full h-full object-cover"
