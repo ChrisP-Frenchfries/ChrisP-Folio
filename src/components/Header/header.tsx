@@ -23,7 +23,7 @@ export function Header() {
                 {/* Logo et titre */}
                 <div className="flex items-center gap-3 md:gap-4">
                   <Avatar className="h-8 w-8 md:h-10 md:w-10">
-                    <AvatarImage src="/ton-image.jpg" alt="Chris P" />
+                    <AvatarImage src="/profil.png" alt="Chris P" />
                     <AvatarFallback>CP</AvatarFallback>
                   </Avatar>
                   <div>
