@@ -19,7 +19,7 @@ export function ProjectCard({ href, imageUrl, title, description }: ProjectCardP
                         <Image
                             src={imageUrl}
                             alt={title}
-                            className="w-full h-full object-cover"
+                            className="w-auto h-full object-cover"
                             width={100}
                             height={100}
                         />

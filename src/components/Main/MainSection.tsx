@@ -30,16 +30,16 @@ export function MainSection() {
 
     const jobs = [
         {
-            href: "/jobs/1",
-            imageUrl: "/images/job1.jpg",
-            title: "cometdesign",
-            description: "agence de création web/app et marketing .",
+            href: "https://cometedesign.com/",
+            imageUrl: "/images/cometedesign.png",
+            title: "Comete Design",
+            description: "Création d'applications webs et mobiles .",
         },
         {
-            href: "/jobs/2",
-            imageUrl: "/images/tatoor.jpg",
-            title: "TatooR",
-            description: "Site web Design pour un salon de tatoo.",
+            href: "https://dams-tattoo.vercel.app/",
+            imageUrl: "/images/le-maquis.png",
+            title: "Le Maquis",
+            description: "Vitrine et portefolio pour un salon de tatoo.",
         },
         {
             href: "/jobs/3",
@@ -49,32 +49,12 @@ export function MainSection() {
         },
         {
             href: "/jobs/4",
-            imageUrl: "/images/forge-wood.jpg",
+            imageUrl: "/images/forgeandwood.jpg",
             title: "ForgeAndWood",
             description: "site commercial pour un feronier d'art.",
             imgHover: "/images/job1-hover.jpg",
         },
-        {
-            href: "/jobs/2",
-            imageUrl: "/images/job2.jpg",
-            title: "Job 2",
-            description: "Description courte pour le Job 2.",
-            imgHover: "/images/job2-hover.jpg",
-        },
-        {
-            href: "/jobs/3",
-            imageUrl: "/images/job3.jpg",
-            title: "Job 3",
-            description: "Description courte pour le Job 3.",
-            imgHover: "/images/job3-hover.jpg",
-        },
-        {
-            href: "/jobs/4",
-            imageUrl: "/images/job4.jpg",
-            title: "Job 4",
-            description: "Description courte pour le Job 4.",
-            imgHover: "/images/job4-hover.jpg",
-        },
+
     ];
 
     return (

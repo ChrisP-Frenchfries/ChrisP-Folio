@@ -20,7 +20,7 @@ export function JobCard({ href, imageUrl, title, description }: JobCardProps) {
                         <Image
                             src={imageUrl}
                             alt={title}
-                            className="w-full h-full object-cover"
+                            className="w-auto h-full object-cover"
                             width={100}
                             height={100}
 
