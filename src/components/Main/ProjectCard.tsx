@@ -20,6 +20,7 @@ export function ProjectCard({ href, imageUrl, title, description }: ProjectCardP
                             src={imageUrl}
                             alt={title}
                             className="w-full h-full object-cover"
+                            width={100}
                         />
                     </div>
                     {/* Zone texte à droite */}

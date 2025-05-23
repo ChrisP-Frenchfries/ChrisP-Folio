@@ -52,7 +52,6 @@ export function MainSection() {
             imageUrl: "/images/forge-wood.jpg",
             title: "ForgeAndWood",
             description: "site commercial pour un feronier d'art.",
-            description: "super description.",
             imgHover: "/images/job1-hover.jpg",
         },
         {

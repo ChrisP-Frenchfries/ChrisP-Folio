@@ -1,12 +1,6 @@
 import { Card } from "@/src/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/avatar";
 import { Section } from "../Section/Section";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/src/components/ui/navigation-menu"
 import Link from "next/link"
 import { Button } from "@/src/components/ui/button";
 import { Download, Menu } from "lucide-react";
@@ -39,31 +33,31 @@ export function Header() {
                 </div>
 
                 {/* Navigation Desktop */}
-                <NavigationMenu className="hidden md:block">
-                  <NavigationMenuList>
-                    <NavigationMenuItem>
+                <div className="hidden md:block">
 
-                      <Link href="/" className={navigationMenuTriggerStyle()} >
-                        /Home
-                      </Link>
 
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
 
-                      <Link href="/about" className={navigationMenuTriggerStyle()}>
-                        /About
-                      </Link>
+                  <Link href="/" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50" >
+                    /Home
+                  </Link>
 
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
 
-                      <a href="/cv-Christopher-Pouradier.pdf" target="_blank" rel="noreferrer" className={navigationMenuTriggerStyle()}>
-                        <Download className="inline-block ml-1 w-4 h-4" />&nbsp;Resume
-                      </a>
 
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
+
+                  <Link href="/about" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    /About
+                  </Link>
+
+
+
+
+                  <a href="/cv-Christopher-Pouradier.pdf" target="_blank" rel="noreferrer" className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                    <Download className="inline-block ml-1 w-4 h-4" />&nbsp;Resume
+                  </a>
+
+
+
+                </div>
 
                 {/* Menu Mobile */}
                 <Sheet>
@@ -84,7 +78,7 @@ export function Header() {
                         /Home
                       </Link>
                       <Link
-                        href="/"
+                        href="/about"
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
                         /About
