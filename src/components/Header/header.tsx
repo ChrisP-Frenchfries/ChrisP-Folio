@@ -43,14 +43,14 @@ export function Header() {
                   <NavigationMenuList>
                     <NavigationMenuItem>
 
-                      <Link href="/" >
+                      <Link href="/" className={navigationMenuTriggerStyle()} >
                         /Home
                       </Link>
 
                     </NavigationMenuItem>
                     <NavigationMenuItem>
 
-                      <Link href="/about" >
+                      <Link href="/about" className={navigationMenuTriggerStyle()}>
                         /About
                       </Link>
 
@@ -88,7 +88,7 @@ export function Header() {
                         className="text-lg font-medium hover:text-primary transition-colors"
                       >
                         /About
-                      </Link>
+                      </Link >
                       <a
                         href="/cv-Christopher-Pouradier.pdf"
                         target="_blank"
