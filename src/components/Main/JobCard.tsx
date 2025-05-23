@@ -21,6 +21,8 @@ export function JobCard({ href, imageUrl, title, description }: JobCardProps) {
                             src={imageUrl}
                             alt={title}
                             className="w-full h-full object-cover"
+                            width={100}
+                            height={100}
 
                         />
                     </div>

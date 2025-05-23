@@ -21,6 +21,7 @@ export function ProjectCard({ href, imageUrl, title, description }: ProjectCardP
                             alt={title}
                             className="w-full h-full object-cover"
                             width={100}
+                            height={100}
                         />
                     </div>
                     {/* Zone texte à droite */}
