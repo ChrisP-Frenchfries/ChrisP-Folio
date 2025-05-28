@@ -11,22 +11,22 @@ export function MainSection() {
         {
             href: "/projects/1",
             imageUrl: "/images/project1.jpg",
-            title: "Projet 1",
-            description: "Une courte description du projet 1.",
+            title: "AI-Powered Personal Avatar",
+            description: "An interactive AI avatar that represents yourself and can answer questions about your background, experiences, and CV.",
             tech: "/images/tech1.png",
         },
         {
             href: "/projects/2",
             imageUrl: "/images/project2.jpg",
-            title: "Projet 2",
-            description: "Une courte description du projet 2.",
+            title: "Japan Travel Guide App",
+            description: "the best hidden and popular travel spots around Japan.",
             tech: "/images/tech2.png",
         },
         {
             href: "/projects/3",
             imageUrl: "/images/project3.jpg",
-            title: "OCR accoutning app",
-            description: "accounting app with OCR and AI.",
+            title: "OCR Accounting App",
+            description: "An AI-powered accounting application with Optical Character Recognition.",
             tech: "/images/tech3.png",
         },
     ];
@@ -36,31 +36,30 @@ export function MainSection() {
             href: "https://cometedesign.com/",
             imageUrl: "/images/cometedesign.png",
             title: "Comete Design",
-            description: "Création d'applications webs et mobiles .",
+            description: "Creation of web and mobile applications.",
             tech: "/images/techcometedesign.png",
         },
         {
             href: "https://dams-tattoo.vercel.app/",
             imageUrl: "/images/le-maquis.png",
             title: "Le Maquis",
-            description: "Vitrine et portefolio pour un salon de tatoo.",
+            description: "Showcase and portfolio for a tattoo studio.",
             tech: "/images/techle-maquis.png",
         },
         {
             href: "/jobs/3",
             imageUrl: "/images/sport.jpg",
             title: "CoachSport",
-            description: "site avec reservation pour un coach personnelle.",
+            description: "Website with booking system for a personal coach.",
             tech: "/images/techsport.png",
         },
         {
             href: "/jobs/4",
             imageUrl: "/images/forgeandwood.jpg",
             title: "ForgeAndWood",
-            description: "site commercial pour un feronier d'art.",
+            description: "Commercial site for an artistic blacksmith.",
             tech: "/images/techforgeandwood.png",
         },
-
     ];
 
     return (
