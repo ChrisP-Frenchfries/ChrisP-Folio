@@ -21,9 +21,7 @@ export default function MainPage() {
             </div>
             <TechCardsContainer />
             <div className="border-t w-full max-w-4xl mx-auto "></div>
-            <div className="w-full max-w-4xl  mx-auto pb-4 pt-4" >
-                <CardTitle>BLOG: /list:  </CardTitle>
-            </div>
+
 
             <div className="border-t w-full max-w-4xl mx-auto "></div>
         </main>
