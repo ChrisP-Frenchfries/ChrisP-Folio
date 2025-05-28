@@ -13,18 +13,21 @@ export function MainSection() {
             imageUrl: "/images/project1.jpg",
             title: "Projet 1",
             description: "Une courte description du projet 1.",
+            tech: "/images/tech1.png",
         },
         {
             href: "/projects/2",
             imageUrl: "/images/project2.jpg",
             title: "Projet 2",
             description: "Une courte description du projet 2.",
+            tech: "/images/tech2.png",
         },
         {
             href: "/projects/3",
             imageUrl: "/images/project3.jpg",
-            title: "Projet 3",
-            description: "Une courte description du projet 3.",
+            title: "OCR accoutning app",
+            description: "accounting app with OCR and AI.",
+            tech: "/images/tech3.png",
         },
     ];
 
@@ -34,25 +37,28 @@ export function MainSection() {
             imageUrl: "/images/cometedesign.png",
             title: "Comete Design",
             description: "Création d'applications webs et mobiles .",
+            tech: "/images/techcometedesign.png",
         },
         {
             href: "https://dams-tattoo.vercel.app/",
             imageUrl: "/images/le-maquis.png",
             title: "Le Maquis",
             description: "Vitrine et portefolio pour un salon de tatoo.",
+            tech: "/images/techle-maquis.png",
         },
         {
             href: "/jobs/3",
             imageUrl: "/images/sport.jpg",
             title: "CoachSport",
             description: "site avec reservation pour un coach personnelle.",
+            tech: "/images/techsport.png",
         },
         {
             href: "/jobs/4",
             imageUrl: "/images/forgeandwood.jpg",
             title: "ForgeAndWood",
             description: "site commercial pour un feronier d'art.",
-            imgHover: "/images/job1-hover.jpg",
+            tech: "/images/techforgeandwood.png",
         },
 
     ];

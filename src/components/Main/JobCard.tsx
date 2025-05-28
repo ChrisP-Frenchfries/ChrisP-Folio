@@ -7,14 +7,15 @@ type JobCardProps = {
     imageUrl: string;
     title: string;
     description: string;
+    tech: string;
 
 };
 
-export function JobCard({ href, imageUrl, title, description }: JobCardProps) {
+export function JobCard({ href, imageUrl, title, description, tech }: JobCardProps) {
     return (
         <Link href={href}>
-            <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1]">
-                <div className="flex h-full">
+            <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1] relative">
+                <div className="flex h-full ">
                     {/* Image en carré à gauche */}
                     <div className="w-1/4 h-full">
                         <Image
@@ -23,7 +24,6 @@ export function JobCard({ href, imageUrl, title, description }: JobCardProps) {
                             className="w-auto h-full object-cover"
                             width={100}
                             height={100}
-
                         />
                     </div>
                     {/* Zone texte à droite */}
@@ -31,6 +31,17 @@ export function JobCard({ href, imageUrl, title, description }: JobCardProps) {
                         <h3 className="text-lg font-semibold">{title}</h3>
                         <p className="text-sm text-muted-foreground">{description}</p>
                     </div>
+
+                    <div className="w-1/4 h-1/4 absolute top-0 right-0">
+                        <Image
+                            src={tech}
+                            alt="technologies"
+                            className="w-auto h-full object-cover mt-2 ml-2"
+                            width={100}
+                            height={100}
+                        />
+                    </div>
+
                 </div>
             </Card>
         </Link >

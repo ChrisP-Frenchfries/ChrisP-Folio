@@ -7,9 +7,10 @@ type ProjectCardProps = {
     imageUrl: string;
     title: string;
     description: string;
+    tech: string;
 }
 
-export function ProjectCard({ href, imageUrl, title, description }: ProjectCardProps) {
+export function ProjectCard({ href, imageUrl, title, description, tech }: ProjectCardProps) {
     return (
         <Link href={href}>
             <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1]">
@@ -25,9 +26,19 @@ export function ProjectCard({ href, imageUrl, title, description }: ProjectCardP
                         />
                     </div>
                     {/* Zone texte à droite */}
-                    <div className="w-3/4 pl-4 flex flex-col justify-center">
+                    <div className="w-2/4 pl-4 flex flex-col justify-center">
                         <h3 className="text-lg font-semibold">{title}</h3>
                         <p className="text-sm text-muted-foreground">{description}</p>
+                    </div>
+
+                    <div className="w-1/4 h-full top-0 right-0">
+                        <Image
+                            src={tech}
+                            alt="technologies"
+                            className="w-auto h-2/4 object-cover"
+                            width={100}
+                            height={100}
+                        />
                     </div>
                 </div>
             </Card>
