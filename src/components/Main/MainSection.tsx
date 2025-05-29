@@ -11,17 +11,18 @@ export function MainSection() {
         {
             href: "/projects/1",
             imageUrl: "/images/project1.jpg",
-            title: "AI-Powered Personal Avatar",
-            description: "An interactive AI avatar that represents yourself and can answer questions about your background, experiences, and CV.",
+            title: "Who Am I AI",
+            description: "An interactive AI avatar that can answer questions about your background, experiences, and resume.",
             tech: "/images/tech1.png",
         },
         {
             href: "/projects/2",
             imageUrl: "/images/project2.jpg",
-            title: "Japan Travel Guide App",
-            description: "the best hidden and popular travel spots around Japan.",
+            title: "How to Dress Baby at Night",
+            description: "A mobile app that recommends how to dress your baby for the night.",
             tech: "/images/tech2.png",
         },
+
         {
             href: "/projects/3",
             imageUrl: "/images/project3.jpg",
@@ -59,7 +60,8 @@ export function MainSection() {
             title: "ForgeAndWood",
             description: "Commercial site for an artistic blacksmith.",
             tech: "/images/techforgeandwood.png",
-        },
+        }
+
     ];
 
     return (
@@ -67,7 +69,7 @@ export function MainSection() {
             <div className="flex gap-4">
                 {/* Section Projets (7/12 de largeur) */}
                 <Card className="w-7/12 overflow-hidden p-4 card-y">
-                    <h2 className="text-xl font-bold mb-4">Mes Projets</h2>
+                    <h2 className="text-xl font-bold mb-4">My Projects</h2>
                     <div className="flex flex-col gap-3">
                         {projects.map((project, idx) => (
                             <ProjectCard key={idx} {...project} />

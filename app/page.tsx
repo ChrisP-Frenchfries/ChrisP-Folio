@@ -2,6 +2,7 @@
 import { CardTitle } from "@/src/components/ui/card";
 import { MainSection } from "@/src/components/Main/MainSection";
 import { TechCardsContainer } from "@/src/components/MainSection2/TechCardsContainer";
+import MySimChatWindow from "@/src/components/MySim/MySimChatWindow";
 
 
 export default function MainPage() {
@@ -21,7 +22,7 @@ export default function MainPage() {
             </div>
             <TechCardsContainer />
             <div className="border-t w-full max-w-4xl mx-auto "></div>
-
+            <MySimChatWindow />
 
             <div className="border-t w-full max-w-4xl mx-auto "></div>
         </main>

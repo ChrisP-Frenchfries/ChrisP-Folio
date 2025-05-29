@@ -35,7 +35,7 @@ export function ProjectCard({ href, imageUrl, title, description, tech }: Projec
                         <Image
                             src={tech}
                             alt="technologies"
-                            className="w-auto h-2/4 object-cover"
+                            className="w-auto h-full object-cover"
                             width={100}
                             height={100}
                         />
