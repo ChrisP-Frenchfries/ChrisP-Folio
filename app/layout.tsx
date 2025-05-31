@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../src/styles/globals.css"
 import { Header } from "../src/components/Header/header";
+import MySimChatWindow from "@/src/components/MySim/MySimChatWindow";
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
@@ -50,6 +51,7 @@ export default function RootLayout({
         <div className="flex flex-col gap-4">
           {children}
         </div>
+        <MySimChatWindow />
       </body>
     </html>
   );

@@ -1,98 +1,136 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+"use client"
 
-// Définir les types pour la position et les références de drag
-interface Position {
-    x: number;
-    y: number;
-}
+import { useState, FormEvent } from "react"
+import { Bot, CornerDownLeft } from "lucide-react"
+import { Button } from "@/src/components/ui/button"
 
-interface DragRef {
-    startX: number;
-    startY: number;
-}
+
+import {
+    ExpandableChat,
+    ExpandableChatHeader,
+    ExpandableChatBody,
+    ExpandableChatFooter,
+} from "@/src/components/ui/expandable-chat"
+
+import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "./ChatBubble"
+import { ChatMessageList } from "./ChatMessageList"
+import { ChatInput } from "./ChatInput"
 
 export default function MySimChatWindow() {
-    const [position, setPosition] = useState<Position>({ x: 100, y: 100 });
-    const [isDragging, setIsDragging] = useState<boolean>(false);
-    const [isMinimized, setIsMinimized] = useState<boolean>(false);
-    const dragRef = useRef<DragRef | null>(null);
-
-    // Gérer le début du drag (souris ou tactile)
-    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-        const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
-
-        setIsDragging(true);
-        dragRef.current = {
-            startX: clientX - position.x,
-            startY: clientY - position.y,
-        };
-    };
-
-    // Gérer le déplacement (souris ou tactile) avec useCallback
-    const handleMouseMove = useCallback(
-        (e: MouseEvent | TouchEvent) => {
-            if (isDragging && dragRef.current) {
-                const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-                const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
-
-                const newX = clientX - dragRef.current.startX;
-                const newY = clientY - dragRef.current.startY;
-
-                // Limiter le déplacement pour éviter que la fenêtre sorte de l'écran
-                const boundedX = Math.max(0, Math.min(newX, window.innerWidth - 300)); // 300 = largeur
-                const boundedY = Math.max(0, Math.min(newY, window.innerHeight - (isMinimized ? 40 : 400))); // 400 = hauteur pleine, 40 = hauteur minimisée
-
-                setPosition({ x: boundedX, y: boundedY });
-            }
+    const [messages, setMessages] = useState([
+        {
+            id: 1,
+            content: "Hello! How can I help you today?",
+            sender: "ai",
         },
-        [isDragging, isMinimized] // Dépendances de handleMouseMove
-    );
 
-    // Arrêter le drag avec useCallback
-    const handleMouseUp = useCallback(() => {
-        setIsDragging(false);
-        dragRef.current = null;
-    }, []);
+    ])
 
-    // Ajouter les écouteurs d'événements pour la souris et le tactile
-    useEffect(() => {
-        if (isDragging) {
-            window.addEventListener('mousemove', handleMouseMove);
-            window.addEventListener('touchmove', handleMouseMove);
-            window.addEventListener('mouseup', handleMouseUp);
-            window.addEventListener('touchend', handleMouseUp);
-        }
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('touchmove', handleMouseMove);
-            window.removeEventListener('mouseup', handleMouseUp);
-            window.removeEventListener('touchend', handleMouseUp);
-        };
-    }, [isDragging, handleMouseMove, handleMouseUp]); // Inclure handleMouseMove et handleMouseUp dans les dépendances
+    const [input, setInput] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
+
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault()
+        if (!input.trim()) return
+
+        setMessages((prev) => [
+            ...prev,
+            {
+                id: prev.length + 1,
+                content: input,
+                sender: "user",
+            },
+        ])
+        setInput("")
+        setIsLoading(true)
+
+        setTimeout(() => {
+            setMessages((prev) => [
+                ...prev,
+                {
+                    id: prev.length + 1,
+                    content: "This is an AI response to your message.",
+                    sender: "ai",
+                },
+            ])
+            setIsLoading(false)
+        }, 1000)
+    }
+
+
 
     return (
-        <div
-            className={`absolute w-[300px] ${isMinimized ? 'h-[40px]' : 'h-[400px]'} bg-white border border-gray-300 rounded-lg shadow-lg z-50 cursor-move select-none`}
-            style={{ top: position.y, left: position.x }}
-            onMouseDown={handleMouseDown}
-            onTouchStart={handleMouseDown}
-        >
-            <div className="bg-black text-white p-2 rounded-t-lg flex justify-between items-center">
-                <h3 className="text-lg font-semibold">My Sim</h3>
-                <button
-                    className="text-white hover:bg-white rounded px-2"
-                    onClick={() => setIsMinimized(!isMinimized)}
-                >
-                    {isMinimized ? '+' : '−'}
-                </button>
-            </div>
-            {!isMinimized && (
-                <div className="p-4 h-[calc(100%-40px)] overflow-y-auto">
-                    <p>Contenu de la fenêtre de chat...</p>
-                    {/* Ajoute ici la logique de ton chat */}
-                </div>
-            )}
+        <div className=" relative">
+            <ExpandableChat
+                size="lg"
+                position="bottom-right"
+                icon={<Bot className="h-6 w-6" />}
+            >
+                <ExpandableChatHeader className="flex-col text-center justify-center">
+                    <h1 className="text-xl font-semibold">Who Am I.AI ✨</h1>
+                    <p className="text-sm text-muted-foreground">
+                        Ask me anything about me
+                    </p>
+                </ExpandableChatHeader>
+
+                <ExpandableChatBody>
+                    <ChatMessageList>
+                        {messages.map((message) => (
+                            <ChatBubble
+                                key={message.id}
+                                variant={message.sender === "user" ? "sent" : "received"}
+                            >
+                                <ChatBubbleAvatar
+                                    className="h-8 w-8 shrink-0"
+                                    src={
+                                        message.sender === "user"
+                                            ? ""
+                                            : "/public/images/ai-avatar.png"
+                                    }
+                                    fallback={message.sender === "user" ? "US" : "AI"}
+                                />
+                                <ChatBubbleMessage
+                                    variant={message.sender === "user" ? "sent" : "received"}
+                                >
+                                    {message.content}
+                                </ChatBubbleMessage>
+                            </ChatBubble>
+                        ))}
+
+                        {isLoading && (
+                            <ChatBubble variant="received">
+                                <ChatBubbleAvatar
+                                    className="h-8 w-8 shrink-0"
+                                    src="/public/images/ai-avatar.webp"
+                                    fallback="AI"
+                                />
+                                <ChatBubbleMessage isLoading />
+                            </ChatBubble>
+                        )}
+                    </ChatMessageList>
+                </ExpandableChatBody>
+
+                <ExpandableChatFooter>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="relative rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring p-1"
+                    >
+                        <ChatInput
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Type your message..."
+                            className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
+                        />
+                        <div className="flex items-center p-3 pt-0 justify-between">
+
+                            <Button type="submit" size="sm" className="ml-auto gap-1.5">
+                                Send Message
+                                <CornerDownLeft className="size-3.5" />
+                            </Button>
+                        </div>
+                    </form>
+                </ExpandableChatFooter>
+            </ExpandableChat>
         </div>
-    );
+    )
 }
