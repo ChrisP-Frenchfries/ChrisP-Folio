@@ -81,7 +81,7 @@ export default function MySimChatWindow() {
             <div className="bg-black text-white p-2 rounded-t-lg flex justify-between items-center">
                 <h3 className="text-lg font-semibold">My Sim</h3>
                 <button
-                    className="text-white hover:bg-blue-700 rounded px-2"
+                    className="text-white hover:bg-white rounded px-2"
                     onClick={() => setIsMinimized(!isMinimized)}
                 >
                     {isMinimized ? '+' : '−'}
