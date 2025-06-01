@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, FormEvent } from "react"
+import { useState, FormEvent, ChangeEvent } from "react"
 import { Bot, CornerDownLeft } from "lucide-react"
 import { Button } from "@/src/components/ui/button"
-
+import { sendMessageToGemini } from "@/app/actions"
 
 import {
     ExpandableChat,
@@ -16,51 +16,78 @@ import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "./ChatBubble"
 import { ChatMessageList } from "./ChatMessageList"
 import { ChatInput } from "./ChatInput"
 
+// Interface pour les messages
+interface Message {
+    id: number
+    content: string
+    sender: "user" | "ai"
+}
+
 export default function MySimChatWindow() {
-    const [messages, setMessages] = useState([
+    const [messages, setMessages] = useState<Message[]>([
         {
             id: 1,
             content: "Hello! How can I help you today?",
             sender: "ai",
         },
-
     ])
 
-    const [input, setInput] = useState("")
-    const [isLoading, setIsLoading] = useState(false)
+    const [input, setInput] = useState<string>("")
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault()
-        if (!input.trim()) return
+        if (!input.trim() || isLoading) return
 
-        setMessages((prev) => [
-            ...prev,
-            {
-                id: prev.length + 1,
-                content: input,
-                sender: "user",
-            },
-        ])
+        const userMessage: Message = {
+            id: Date.now(),
+            content: input.trim(),
+            sender: "user",
+        }
+
+        // Ajouter le message utilisateur
+        setMessages((prev) => [...prev, userMessage])
         setInput("")
         setIsLoading(true)
 
-        setTimeout(() => {
-            setMessages((prev) => [
-                ...prev,
-                {
-                    id: prev.length + 1,
-                    content: "This is an AI response to your message.",
-                    sender: "ai",
-                },
-            ])
+        try {
+            // Préparer l'historique pour Gemini (inclut le nouveau message)
+            const conversationHistory = [...messages, userMessage]
+
+            // Appeler Gemini via server action
+            const aiResponse = await sendMessageToGemini(conversationHistory)
+
+            // Ajouter la réponse de l'IA
+            const aiMessage: Message = {
+                id: Date.now() + 1,
+                content: aiResponse,
+                sender: "ai",
+            }
+
+            setMessages((prev) => [...prev, aiMessage])
+
+        } catch (error) {
+            console.error("Erreur lors de l'envoi du message:", error)
+
+            // Message d'erreur pour l'utilisateur
+            const errorMessage: Message = {
+                id: Date.now() + 1,
+                content: "Désolé, une erreur s'est produite. Veuillez réessayer.",
+                sender: "ai",
+            }
+
+            setMessages((prev) => [...prev, errorMessage])
+        } finally {
             setIsLoading(false)
-        }, 1000)
+        }
     }
 
-
+    const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
+        setInput(e.target.value)
+    }
 
     return (
-        <div className=" relative">
+        <div className="relative">
             <ExpandableChat
                 size="lg"
                 position="bottom-right"
@@ -75,7 +102,7 @@ export default function MySimChatWindow() {
 
                 <ExpandableChatBody>
                     <ChatMessageList>
-                        {messages.map((message) => (
+                        {messages.map((message: Message) => (
                             <ChatBubble
                                 key={message.id}
                                 variant={message.sender === "user" ? "sent" : "received"}
@@ -117,14 +144,19 @@ export default function MySimChatWindow() {
                     >
                         <ChatInput
                             value={input}
-                            onChange={(e) => setInput(e.target.value)}
+                            onChange={handleInputChange}
                             placeholder="Type your message..."
                             className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
+                            disabled={isLoading}
                         />
                         <div className="flex items-center p-3 pt-0 justify-between">
-
-                            <Button type="submit" size="sm" className="ml-auto gap-1.5">
-                                Send Message
+                            <Button
+                                type="submit"
+                                size="sm"
+                                className="ml-auto gap-1.5"
+                                disabled={isLoading || !input.trim()}
+                            >
+                                {isLoading ? "Sending..." : "Send Message"}
                                 <CornerDownLeft className="size-3.5" />
                             </Button>
                         </div>
