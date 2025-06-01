@@ -1,17 +1,17 @@
 "use server"
 
-import { GoogleGenerativeAI } from "@google/generative-ai"
+import { GoogleGenAI } from "@google/genai";
 
 // Interface pour les messages
 interface Message {
   id: number
-  content: string
+  content: string | undefined
   sender: "user" | "ai"
 }
 
 // Configuration Gemini
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" })
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+
 
 // Votre prompt personnel - remplacez par vos vraies informations
 const PERSONAL_PROMPT = `
@@ -66,7 +66,7 @@ Instructions :
 - Adapte ton niveau de détail selon la question posée
 `
 
-export async function sendMessageToGemini(messages: Message[]): Promise<string> {
+export async function sendMessageToGemini(messages: Message[]): Promise<string | undefined> {
   try {
     // Construire l'historique de conversation pour Gemini
     const conversationHistory = messages
@@ -82,9 +82,12 @@ ${conversationHistory}
 Réponds au dernier message de l'utilisateur en gardant le contexte de la conversation.`
 
     // Appel à Gemini
-    const result = await model.generateContent(fullPrompt)
-    const response = await result.response
-    const text = response.text()
+    const result = await ai.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: `${fullPrompt}`,
+    })
+
+    const text = result.text
 
     return text
 

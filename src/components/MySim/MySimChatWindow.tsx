@@ -19,7 +19,7 @@ import { ChatInput } from "./ChatInput"
 // Interface pour les messages
 interface Message {
     id: number
-    content: string
+    content: string | undefined
     sender: "user" | "ai"
 }
 
