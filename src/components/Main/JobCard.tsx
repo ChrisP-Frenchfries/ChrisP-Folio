@@ -13,7 +13,9 @@ type JobCardProps = {
 
 export function JobCard({ href, imageUrl, title, description, tech }: JobCardProps) {
     return (
-        <Link href={href}>
+        <Link href={href}
+            target="_blank"
+            rel="noopener noreferrer">
             <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1] relative">
                 <div className="flex h-full ">
                     {/* Image en carré à gauche */}
