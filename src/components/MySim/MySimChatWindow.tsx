@@ -114,7 +114,7 @@ export default function MySimChatWindow() {
                                     src={
                                         message.sender === "user"
                                             ? ""
-                                            : "/public/images/ai-avatar.webp"
+                                            : "/public/ai.png"
                                     }
                                     fallback={message.sender === "user" ? "US" : "AI"}
 
@@ -131,7 +131,7 @@ export default function MySimChatWindow() {
                             <ChatBubble variant="received">
                                 <ChatBubbleAvatar
                                     className="h-8 w-8 shrink-0"
-                                    src="/public/images/ai-avatar.webp"
+                                    src="/public/images/ai.png"
                                     fallback="AI"
                                 />
                                 <ChatBubbleMessage isLoading />

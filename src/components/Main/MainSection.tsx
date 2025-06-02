@@ -13,24 +13,24 @@ export function MainSection() {
             imageUrl: "/images/ai-avatar.webp",
             title: "Who Am I AI",
             description: "An interactive AI avatar that can answer questions about your background, experiences, and resume.",
-            tech: "/images/tech1.png",
+            tech: "/images/click.jpg",
             chat: true
         },
         {
             href: "/projects/2",
-            imageUrl: "/images/project2.jpg",
+            imageUrl: "/images/baby-app.svg",
             title: "How to Dress Baby at Night",
             description: "A mobile app that recommends how to dress your baby for the night.",
-            tech: "/images/tech2.png",
+            tech: "/images/tech2.avif",
             chat: false
         },
 
         {
             href: "/projects/3",
-            imageUrl: "/images/project3.jpg",
+            imageUrl: "/images/ocr-app.svg",
             title: "OCR Accounting App",
             description: "An AI-powered accounting application with Optical Character Recognition.",
-            tech: "/images/tech3.png",
+            tech: "/images/tech4.png",
             chat: false
         },
     ];
@@ -41,28 +41,28 @@ export function MainSection() {
             imageUrl: "/images/cometedesign.png",
             title: "Comete Design",
             description: "Creation of web and mobile applications.",
-            tech: "/images/techcometedesign.png",
+            tech: "/images/tech-comete.png",
         },
         {
             href: "https://dams-tattoo.vercel.app/",
             imageUrl: "/images/le-maquis.png",
             title: "Le Maquis",
             description: "Showcase and portfolio for a tattoo studio.",
-            tech: "/images/techle-maquis.png",
+            tech: "/images/tech-maquis.png",
         },
         {
             href: "/jobs/3",
-            imageUrl: "/images/sport.jpg",
-            title: "CoachSport",
-            description: "Website with booking system for a personal coach.",
-            tech: "/images/techsport.png",
+            imageUrl: "/images/atelier-crimson.jpg",
+            title: "Atelier Crimson",
+            description: "Next interface for a Shopify website designed for a maker",
+            tech: "/images/tech-crimson.png",
         },
         {
             href: "/jobs/4",
-            imageUrl: "/images/forgeandwood.jpg",
+            imageUrl: "/images/forge-wood.png",
             title: "ForgeAndWood",
             description: "Commercial site for an artistic blacksmith.",
-            tech: "/images/techforgeandwood.png",
+            tech: "/images/tech-forge.png",
         }
 
     ];
