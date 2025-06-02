@@ -92,6 +92,8 @@ export default function MySimChatWindow() {
                 size="lg"
                 position="bottom-right"
                 icon={<Bot className="h-6 w-6" />}
+
+
             >
                 <ExpandableChatHeader className="flex-col text-center justify-center">
                     <h1 className="text-xl font-semibold">Who Am I.AI ✨</h1>
@@ -112,9 +114,10 @@ export default function MySimChatWindow() {
                                     src={
                                         message.sender === "user"
                                             ? ""
-                                            : "/public/images/ai-avatar.png"
+                                            : "/public/images/ai-avatar.webp"
                                     }
                                     fallback={message.sender === "user" ? "US" : "AI"}
+
                                 />
                                 <ChatBubbleMessage
                                     variant={message.sender === "user" ? "sent" : "received"}

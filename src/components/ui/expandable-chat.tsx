@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useAtomValue } from 'jotai';
 import { X, MessageCircle } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
+import { chatToggle } from "../MySim/atoms";
+
 
 export type ChatPosition = "bottom-right" | "bottom-left";
 export type ChatSize = "sm" | "md" | "lg" | "xl" | "full";
@@ -46,9 +49,21 @@ const ExpandableChat: React.FC<ExpandableChatProps> = ({
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const toggleAtomChat = useAtomValue<boolean>(chatToggle);
   const chatRef = useRef<HTMLDivElement>(null);
 
-  const toggleChat = () => setIsOpen(!isOpen);
+  const toggleChat = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  useEffect(() => {
+    if (toggleAtomChat) {
+      toggleChat()
+    }
+  }
+    , [toggleAtomChat, toggleChat])
+
+
 
   return (
     <div

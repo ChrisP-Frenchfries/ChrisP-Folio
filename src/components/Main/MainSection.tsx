@@ -9,11 +9,12 @@ export function MainSection() {
         je place la data ici par simplicité */}
     const projects = [
         {
-            href: "/projects/1",
-            imageUrl: "/images/project1.jpg",
+            href: "#",
+            imageUrl: "/images/ai-avatar.webp",
             title: "Who Am I AI",
             description: "An interactive AI avatar that can answer questions about your background, experiences, and resume.",
             tech: "/images/tech1.png",
+            chat: true
         },
         {
             href: "/projects/2",
@@ -21,6 +22,7 @@ export function MainSection() {
             title: "How to Dress Baby at Night",
             description: "A mobile app that recommends how to dress your baby for the night.",
             tech: "/images/tech2.png",
+            chat: false
         },
 
         {
@@ -29,6 +31,7 @@ export function MainSection() {
             title: "OCR Accounting App",
             description: "An AI-powered accounting application with Optical Character Recognition.",
             tech: "/images/tech3.png",
+            chat: false
         },
     ];
 

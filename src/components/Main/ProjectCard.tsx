@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Card } from "@/src/components/ui/card";
 import Image from "next/image";
+import { useSetAtom } from "jotai";
+import { chatToggle } from "../MySim/atoms";
 
 type ProjectCardProps = {
     href: string;
@@ -8,11 +10,23 @@ type ProjectCardProps = {
     title: string;
     description: string;
     tech: string;
+    chat: boolean;
 }
 
-export function ProjectCard({ href, imageUrl, title, description, tech }: ProjectCardProps) {
+export function ProjectCard({ href, imageUrl, title, description, tech, chat }: ProjectCardProps) {
+
+
+    const setToggleChat = useSetAtom(chatToggle)
+
+    const handleClick = () => {
+        if (chat) {
+            setToggleChat((prev) => !prev); // Basculer la valeur boolean de l'atome
+        }
+    };
+
     return (
-        <Link href={href}>
+        <Link href={href}
+            onClick={handleClick}>
             <Card className="overflow-hidden p-3 hover:shadow-lg transition-shadow cursor-pointer aspect-[4/1]">
                 <div className="flex h-full">
                     {/* Image en carré à gauche */}
@@ -42,6 +56,6 @@ export function ProjectCard({ href, imageUrl, title, description, tech }: Projec
                     </div>
                 </div>
             </Card>
-        </Link>
+        </Link >
     );
 }
